@@ -1,0 +1,487 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  background: #000000;
+  color: #FFFFFF;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+header nav.navbar {
+  background: #FFFFFF;
+  padding: 3rem 1rem;
+  width: 100%;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+header nav.navbar .container {
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+}
+header nav.navbar .navbar-brand {
+  margin: 0;
+  padding: 0;
+}
+header nav.navbar .navbar-brand .logo {
+  height: 80px;
+  width: auto;
+  max-width: 250px;
+  object-fit: contain;
+}
+header nav.navbar .navbar-toggler {
+  display: none;
+}
+header nav.navbar .navbar-collapse {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+header nav.navbar .navbar-collapse .navbar-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 3rem;
+}
+header nav.navbar .navbar-collapse .navbar-nav .nav-item .nav-link {
+  color: #000000;
+  font-size: 1.2rem;
+  font-weight: 500;
+  padding: 1rem;
+  transition: color 0.3s;
+}
+header nav.navbar .navbar-collapse .navbar-nav .nav-item .nav-link:hover {
+  color: #528275;
+}
+
+main {
+  flex: 1;
+  max-width: 1400px;
+  width: 100%;
+  padding: 4rem 1rem;
+  margin: 0 auto;
+}
+
+section.hero {
+  min-height: 100vh;
+  padding: 4rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  background: url("../img/hero.jpg") no-repeat center/cover;
+}
+section.hero h1 {
+  font-size: 5rem;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+  animation: fadeIn 1s ease-in;
+}
+section.hero p {
+  font-size: 2rem;
+  margin: 0 0 2rem;
+}
+section.hero .promo-img {
+  max-width: 500px;
+  width: 100%;
+  height: auto;
+  margin: 2rem 0;
+}
+section.hero .price {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin: 1rem 0;
+}
+section.hero .btn {
+  background: #528275;
+  color: #FFFFFF;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: background 0.3s, transform 0.3s;
+  padding: 1.8rem 3rem;
+  font-size: 1.6rem;
+}
+section.hero .btn:hover {
+  background: rgb(62.2735849057, 98.7264150943, 88.8537735849);
+  transform: scale(1.05);
+}
+
+section.products {
+  padding: 4rem 0;
+  text-align: center;
+}
+section.products h1 {
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  text-transform: uppercase;
+}
+section.products .products-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 3rem;
+  padding: 0 1rem;
+}
+section.products .products-grid .product-card {
+  background: #FFFFFF;
+  padding: 2rem;
+  border: 1px solid #FFFFFF;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+}
+section.products .products-grid .product-card:hover {
+  transform: translateY(-10px);
+}
+section.products .products-grid .product-card img {
+  max-height: 300px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+}
+section.products .products-grid .product-card h2 {
+  font-size: 2rem;
+  margin: 1rem 0;
+  color: #000000;
+  font-weight: 600;
+}
+section.products .products-grid .product-card p {
+  font-size: 1.6rem;
+  margin: 0.5rem 0;
+  color: #000000;
+}
+section.products .products-grid .product-card small {
+  color: #000000;
+  font-size: 1.2rem;
+}
+section.products .products-grid .product-card .buy-btn {
+  background: #528275;
+  color: #FFFFFF;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: background 0.3s, transform 0.3s;
+  margin-top: 2rem;
+  width: 100%;
+  font-size: 1.4rem;
+}
+section.products .products-grid .product-card .buy-btn:hover {
+  background: rgb(62.2735849057, 98.7264150943, 88.8537735849);
+  transform: scale(1.05);
+}
+
+section.curar-mate,
+section.regalos,
+section.quienes-somos,
+section.contacto {
+  padding: 4rem 0;
+  text-align: center;
+}
+section.curar-mate h1,
+section.regalos h1,
+section.quienes-somos h1,
+section.contacto h1 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+}
+section.curar-mate h2,
+section.regalos h2,
+section.quienes-somos h2,
+section.contacto h2 {
+  font-size: 2rem;
+  margin: 2rem 0;
+  color: #FFFFFF;
+}
+section.curar-mate p,
+section.regalos p,
+section.quienes-somos p,
+section.contacto p {
+  font-size: 1.6rem;
+  margin: 1rem 0;
+}
+section.curar-mate.regalos .buy-btn,
+section.regalos.regalos .buy-btn,
+section.quienes-somos.regalos .buy-btn,
+section.contacto.regalos .buy-btn {
+  background: #528275;
+  color: #FFFFFF;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: background 0.3s, transform 0.3s;
+  margin-top: 2rem;
+  width: 100%;
+  max-width: 300px;
+  font-size: 1.4rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+section.curar-mate.regalos .buy-btn:hover,
+section.regalos.regalos .buy-btn:hover,
+section.quienes-somos.regalos .buy-btn:hover,
+section.contacto.regalos .buy-btn:hover {
+  background: rgb(62.2735849057, 98.7264150943, 88.8537735849);
+  transform: scale(1.05);
+}
+section.curar-mate.contacto form,
+section.regalos.contacto form,
+section.quienes-somos.contacto form,
+section.contacto.contacto form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+section.curar-mate.contacto form input,
+section.regalos.contacto form input,
+section.quienes-somos.contacto form input,
+section.contacto.contacto form input {
+  padding: 1rem;
+  width: 100%;
+  max-width: 500px;
+  border: 1px solid #FFFFFF;
+  border-radius: 8px;
+  font-size: 1.4rem;
+  background: #FFFFFF;
+  color: #000000;
+}
+section.curar-mate.contacto form .btn,
+section.regalos.contacto form .btn,
+section.quienes-somos.contacto form .btn,
+section.contacto.contacto form .btn {
+  background: #528275;
+  color: #FFFFFF;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: background 0.3s, transform 0.3s;
+  padding: 1rem 2rem;
+  font-size: 1.4rem;
+}
+section.curar-mate.contacto form .btn:hover,
+section.regalos.contacto form .btn:hover,
+section.quienes-somos.contacto form .btn:hover,
+section.contacto.contacto form .btn:hover {
+  background: rgb(62.2735849057, 98.7264150943, 88.8537735849);
+  transform: scale(1.05);
+}
+section.curar-mate.contacto .social-links,
+section.regalos.contacto .social-links,
+section.quienes-somos.contacto .social-links,
+section.contacto.contacto .social-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 2rem;
+}
+section.curar-mate.contacto .social-links .btn,
+section.regalos.contacto .social-links .btn,
+section.quienes-somos.contacto .social-links .btn,
+section.contacto.contacto .social-links .btn {
+  background: #528275;
+  color: #FFFFFF;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: background 0.3s, transform 0.3s;
+  padding: 1rem 2rem;
+  font-size: 1.4rem;
+}
+section.curar-mate.contacto .social-links .btn:hover,
+section.regalos.contacto .social-links .btn:hover,
+section.quienes-somos.contacto .social-links .btn:hover,
+section.contacto.contacto .social-links .btn:hover {
+  background: rgb(62.2735849057, 98.7264150943, 88.8537735849);
+  transform: scale(1.05);
+}
+
+footer {
+  background: #FFFFFF;
+  color: #000000;
+  text-align: center;
+  padding: 2rem;
+  width: 100%;
+  font-size: 1.4rem;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@media (max-width: 1024px) {
+  section.products .products-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 768px) {
+  section.hero {
+    min-height: 70vh;
+  }
+  section.hero h1 {
+    font-size: 2.5rem;
+  }
+  section.hero p {
+    font-size: 1.4rem;
+  }
+  section.hero .price {
+    font-size: 1.6rem;
+  }
+  section.hero .promo-img {
+    max-width: 300px;
+  }
+  section.hero .btn {
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+  }
+  section.products .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  section.curar-mate,
+  section.regalos,
+  section.quienes-somos,
+  section.contacto {
+    padding: 3rem 0;
+  }
+  section.curar-mate h1,
+  section.regalos h1,
+  section.quienes-somos h1,
+  section.contacto h1 {
+    font-size: 2rem;
+  }
+  section.curar-mate h2,
+  section.regalos h2,
+  section.quienes-somos h2,
+  section.contacto h2 {
+    font-size: 1.6rem;
+  }
+  section.curar-mate p,
+  section.regalos p,
+  section.quienes-somos p,
+  section.contacto p {
+    font-size: 1.4rem;
+  }
+}
+@media (max-width: 576px) {
+  header nav.navbar {
+    padding: 2rem;
+  }
+  header nav.navbar .navbar-brand .logo {
+    height: 50px;
+    max-width: 150px;
+  }
+  header nav.navbar .navbar-toggler {
+    display: block;
+    margin-left: auto;
+  }
+  header nav.navbar .navbar-collapse {
+    display: none;
+  }
+  header nav.navbar .navbar-collapse.show {
+    display: block;
+  }
+  header nav.navbar .navbar-collapse .navbar-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+  }
+  header nav.navbar .nav-item .nav-link {
+    font-size: 1.2rem;
+    padding: 0.5rem;
+  }
+  section.hero {
+    min-height: 60vh;
+  }
+  section.hero h1 {
+    font-size: 1.6rem;
+  }
+  section.hero p {
+    font-size: 1.2rem;
+  }
+  section.hero .price {
+    font-size: 1.4rem;
+  }
+  section.hero .promo-img {
+    max-width: 200px;
+  }
+  section.hero .btn {
+    padding: 0.5rem 2rem;
+    font-size: 1.2rem;
+  }
+  section.products .products-grid {
+    grid-template-columns: 1fr;
+  }
+  section.products .products-grid .product-card img {
+    max-height: 200px;
+  }
+  section.products .products-grid .product-card h2 {
+    font-size: 1.6rem;
+  }
+  section.products .products-grid .product-card p {
+    font-size: 1.2rem;
+  }
+  section.products .products-grid .product-card .buy-btn {
+    font-size: 1.2rem;
+  }
+  section.curar-mate,
+  section.regalos,
+  section.quienes-somos,
+  section.contacto {
+    padding: 2rem 0;
+  }
+  footer {
+    font-size: 1.2rem;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
