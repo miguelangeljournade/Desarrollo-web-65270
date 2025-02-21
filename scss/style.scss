@@ -1,28 +1,29 @@
-
 // Variables
-$color-fondo: #000000;
-$color-tipografia: #FFFFFF;
-$color-nav-fondo: #FFFFFF;
-$color-nav-tipografia: #000000;
-$color-btn-compra: #528275;
-$color-btn-tipografia: #FFFFFF;
+$color-body-bg: #000000;
+$color-body-text: #FFFFFF;
+$color-nav-bg: #FFFFFF;
+$color-nav-text: #000000;
+$color-btn-bg: #528275;
+$color-btn-text: #FFFFFF;
 
-$max-width: 1400px;
-$logo-height: 50px;           // Reducido para navbar más fino
-$logo-height-mobile: 30px;    // Reducido para móvil
-$product-img-height: 300px;
-$promo-img-width: 500px;
+$max-width: 1440px;
+$logo-height: 80px;
+$logo-height-mobile: 40px;
+$product-img-height: 240px;
+$promo-img-width: 400px;
 
+$spacing-xs: 0.5rem;
 $spacing-sm: 1rem;
-$spacing-md: 2rem;
-$spacing-lg: 3rem;
-$spacing-xl: 4rem;
+$spacing-md: 1.5rem;
+$spacing-lg: 2rem;
+$spacing-xl: 3rem;
 
-$font-size-base: 1rem;
-$font-size-md: 1.2rem;
-$font-size-lg: 1.6rem;
+$font-size-xs: 0.875rem;
+$font-size-sm: 1rem;
+$font-size-md: 1.25rem;
+$font-size-lg: 1.5rem;
 $font-size-xl: 2rem;
-$font-size-hero: 5rem;        // Mantengo este nombre aunque la sección ahora es "logo"
+$font-size-hero: 3.5rem;
 
 // Mxins
 @mixin flex-center($direction: row) {
@@ -32,15 +33,15 @@ $font-size-hero: 5rem;        // Mantengo este nombre aunque la sección ahora e
   flex-direction: $direction;
 }
 
-@mixin button-styles($bg: $color-btn-compra, $color: $color-btn-tipografia) {
+@mixin button-styles($bg: $color-btn-bg, $text: $color-btn-text) {
   background: $bg;
-  color: $color;
+  color: $text;
   padding: $spacing-sm $spacing-md;
   border-radius: 8px;
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 600;
   text-transform: uppercase;
-  transition: background 0.3s, transform 0.3s;
+  transition: background 0.3s ease, transform 0.3s ease;
 
   &:hover {
     background: darken($bg, 10%);
@@ -58,10 +59,11 @@ $font-size-hero: 5rem;        // Mantengo este nombre aunque la sección ahora e
 // Bodi
 body {
   font-family: 'Arial', sans-serif;
-  background: $color-fondo;
-  color: $color-tipografia;
-  line-height: 1.6;
+  background: $color-body-bg;
+  color: $color-body-text;
+  line-height: 1.5;
   min-height: 100vh;
+  overflow-x: hidden;
 
   @include flex-center(column);
 }
@@ -69,57 +71,67 @@ body {
 // Navegacion
 header {
   nav.navbar {
-    background: $color-nav-fondo;
-    padding: 0.25rem $spacing-sm; // Más fino, solo 0.25rem arriba/abajo
+    background: $color-nav-bg;
     width: 100%;
+    padding: $spacing-md $spacing-sm;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: 0;
     z-index: 1000;
+
+    @include flex-center(row);
+    justify-content: center;
 
     .container {
       max-width: $max-width;
-      width: 100%;
-      margin: 0 auto;
+      width: 90%;
+      margin: 0;
 
       @include flex-center(row);
       justify-content: space-between;
     }
 
     .navbar-brand {
-      margin: 0;
       padding: 0;
 
       .logo {
-        height: $logo-height; // Define la altura del navbar
+        height: $logo-height;
         width: auto;
-        max-width: 250px;
+        max-width: 200px;
         object-fit: contain;
       }
     }
 
     .navbar-toggler {
       display: none;
+      border: none;
+      padding: $spacing-xs;
+
+      .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0, 0, 0, 0.8)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        width: 24px;
+        height: 24px;
+      }
     }
 
     .navbar-collapse {
       @include flex-center(row);
-      justify-content: flex-end;
 
       .navbar-nav {
         @include flex-center(row);
-        gap: $spacing-lg;
+        gap: $spacing-md;
 
         .nav-item {
           .nav-link {
-            color: $color-nav-tipografia;
+            color: $color-nav-text;
             font-size: $font-size-md;
             font-weight: 500;
             padding: $spacing-sm;
-            transition: color 0.3s;
+            transition: color 0.3s ease;
 
             &:hover {
-              color: $color-btn-compra;
+              color: $color-btn-bg;
             }
           }
         }
@@ -132,31 +144,30 @@ header {
 main {
   flex: 1;
   max-width: $max-width;
-  width: 100%;
+  width: 90%;
   padding: $spacing-xl $spacing-sm;
-  margin: 0 auto;
+  margin: $spacing-lg auto 0;
 }
 
-// Logo Seccion
-section.logo { // Cambiado de "hero" a "logo"
-  min-height: 100vh;
-  padding: $spacing-xl $spacing-md;
+// Hero Section
+section.hero {
+  min-height: 80vh;
+  padding: $spacing-lg $spacing-sm;
+  text-align: center;
+  background: url('../img/promo.jpg') no-repeat center/cover; // Cambiado de hero.jpg a promo.jpg
 
   @include flex-center(column);
-  text-align: center;
-  background: url('../img/logo.jpg') no-repeat center/cover; // Cambiado a logo.jpg
 
   h1 {
     font-size: $font-size-hero;
     margin-bottom: $spacing-md;
     text-transform: uppercase;
     font-weight: bold;
-    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
-    animation: fadeIn 1s ease-in;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
   }
 
   p {
-    font-size: $font-size-xl;
+    font-size: $font-size-lg;
     margin: 0 0 $spacing-md;
   }
 
@@ -168,21 +179,21 @@ section.logo { // Cambiado de "hero" a "logo"
   }
 
   .price {
-    font-size: $font-size-xl + 0.5rem;
+    font-size: $font-size-xl;
     font-weight: bold;
     margin: $spacing-sm 0;
   }
 
   .btn {
     @include button-styles;
-    padding: ($spacing-md - 0.2rem) $spacing-lg;
-    font-size: $font-size-lg;
+    padding: $spacing-sm $spacing-lg;
+    font-size: $font-size-md;
   }
 }
 
-// Productos
+// Products Section
 section.products {
-  padding: $spacing-xl 0;
+  padding: $spacing-lg 0;
   text-align: center;
 
   h1 {
@@ -194,67 +205,66 @@ section.products {
   .products-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: $spacing-lg;
+    gap: $spacing-md;
     padding: 0 $spacing-sm;
 
     .product-card {
-      background: $color-nav-fondo;
-      padding: $spacing-md;
-      border: 1px solid $color-tipografia;
+      background: $color-nav-bg;
+      padding: $spacing-sm;
+      border: 1px solid $color-body-text;
       border-radius: 10px;
-      box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
-      transition: transform 0.3s;
-      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+      transition: transform 0.3s ease;
 
       @include flex-center(column);
       justify-content: space-between;
 
       &:hover {
-        transform: translateY(-10px);
+        transform: translateY(-8px);
       }
 
       img {
         max-height: $product-img-height;
         width: 100%;
         object-fit: cover;
-        border-radius: 10px;
-        margin-bottom: $spacing-md;
+        border-radius: 8px;
+        margin-bottom: $spacing-sm;
       }
 
       h2 {
-        font-size: $font-size-xl;
-        margin: $spacing-sm 0;
-        color: $color-nav-tipografia;
+        font-size: $font-size-lg;
+        margin: $spacing-xs 0;
+        color: $color-nav-text;
         font-weight: 600;
       }
 
       p {
-        font-size: $font-size-lg;
-        margin: $spacing-sm/2 0;
-        color: $color-nav-tipografia;
+        font-size: $font-size-md;
+        margin: $spacing-xs 0;
+        color: $color-nav-text;
       }
 
       small {
-        color: $color-nav-tipografia;
-        font-size: $font-size-md;
+        color: $color-nav-text;
+        font-size: $font-size-sm;
       }
 
       .buy-btn {
         @include button-styles;
-        margin-top: $spacing-md;
+        margin-top: $spacing-sm;
         width: 100%;
-        font-size: $font-size-md + 0.2rem;
+        font-size: $font-size-md;
       }
     }
   }
 }
 
-// curar-mate, regalos, quienes-somos, contacto
+// resto de seccions
 section.curar-mate,
 section.regalos,
 section.quienes-somos,
 section.contacto {
-  padding: $spacing-xl 0;
+  padding: $spacing-lg 0;
   text-align: center;
 
   h1 {
@@ -264,13 +274,12 @@ section.contacto {
   }
 
   h2 {
-    font-size: $font-size-xl;
+    font-size: $font-size-lg;
     margin: $spacing-md 0;
-    color: $color-tipografia;
   }
 
   p {
-    font-size: $font-size-lg;
+    font-size: $font-size-md;
     margin: $spacing-sm 0;
   }
 
@@ -279,8 +288,8 @@ section.contacto {
       @include button-styles;
       margin-top: $spacing-md;
       width: 100%;
-      max-width: 300px;
-      font-size: $font-size-md + 0.2rem;
+      max-width: 250px;
+      font-size: $font-size-md;
       display: block;
       margin-left: auto;
       margin-right: auto;
@@ -296,18 +305,18 @@ section.contacto {
       input {
         padding: $spacing-sm;
         width: 100%;
-        max-width: 500px;
-        border: 1px solid $color-tipografia;
+        max-width: 400px;
+        border: 1px solid $color-body-text;
         border-radius: 8px;
-        font-size: $font-size-md + 0.2rem;
-        background: $color-nav-fondo;
-        color: $color-nav-tipografia;
+        font-size: $font-size-md;
+        background: $color-nav-bg;
+        color: $color-nav-text;
       }
 
       .btn {
         @include button-styles;
         padding: $spacing-sm $spacing-md;
-        font-size: $font-size-md + 0.2rem;
+        font-size: $font-size-md;
       }
     }
 
@@ -318,33 +327,23 @@ section.contacto {
       .btn {
         @include button-styles;
         padding: $spacing-sm $spacing-md;
-        font-size: $font-size-md + 0.2rem;
+        font-size: $font-size-md;
       }
     }
   }
 }
 
-// Fuyter
+// Futer
 footer {
-  background: $color-nav-fondo;
-  color: $color-nav-tipografia;
+  background: $color-nav-bg;
+  color: $color-nav-text;
   text-align: center;
   padding: $spacing-md;
   width: 100%;
-  font-size: $font-size-md + 0.2rem;
+  font-size: $font-size-md;
 }
 
-// Animaciones
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-// Responsive
+// Responsiv
 @media (max-width: 1024px) {
   section.products {
     .products-grid {
@@ -354,31 +353,119 @@ footer {
 }
 
 @media (max-width: 768px) {
-  section.logo { // Cambiado de hero a logo
-    min-height: 70vh;
+  main {
+    width: 92%;
+    padding: $spacing-md $spacing-xs;
+  }
 
-    h1 {
-      font-size: $font-size-xl + 0.5rem;
-    }
+  section.hero {
+    min-height: 60vh;
 
-    p {
-      font-size: $font-size-md + 0.2rem;
-    }
-
-    .price {
-      font-size: $font-size-lg;
-    }
-
-    .promo-img {
-      max-width: 300px;
-    }
-
-    .btn {
-      padding: $spacing-sm $spacing-md;
-      font-size: $font-size-md;
-    }
+    h1 { font-size: $font-size-xl; }
+    p { font-size: $font-size-md; }
+    .price { font-size: $font-size-lg; }
+    .promo-img { max-width: 300px; }
+    .btn { padding: $spacing-xs $spacing-md; font-size: $font-size-sm; }
   }
 
   section.products {
+    padding: $spacing-md 0;
+
+    h1 { font-size: $font-size-lg + 0.2rem; }
     .products-grid {
-      grid-template-columns: repea
+      grid-template-columns: repeat(2, 1fr);
+      gap: $spacing-sm;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  body {
+    font-size: $font-size-xs;
+  }
+
+  header {
+    nav.navbar {
+      padding: $spacing-xs;
+
+      .container {
+        width: 100%;
+        padding: 0 $spacing-xs;
+      }
+
+      .navbar-brand {
+        .logo {
+          height: $logo-height-mobile;
+          max-width: 120px;
+        }
+      }
+
+      .navbar-toggler {
+        display: block;
+        margin-left: auto;
+      }
+
+      .navbar-collapse {
+        display: none;
+
+        &.show {
+          display: block;
+          width: 100%;
+          background: $color-nav-bg;
+          padding: $spacing-sm;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-nav {
+          @include flex-center(column);
+          gap: $spacing-xs;
+
+          .nav-item {
+            .nav-link {
+              padding: $spacing-xs;
+              font-size: $font-size-sm;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  main {
+    padding: $spacing-xs;
+  }
+
+  section.hero {
+    min-height: 50vh;
+    padding: $spacing-md $spacing-xs;
+
+    h1 { font-size: $font-size-lg; }
+    p { font-size: $font-size-sm; }
+    .price { font-size: $font-size-md; }
+    .promo-img { max-width: 200px; }
+    .btn { padding: $spacing-xs $spacing-sm; font-size: $font-size-xs; }
+  }
+
+  section.products {
+    padding: $spacing-sm 0;
+
+    h1 { font-size: $font-size-lg; }
+    .products-grid {
+      grid-template-columns: 1fr;
+      gap: $spacing-xs;
+
+      .product-card {
+        padding: $spacing-xs;
+
+        img { max-height: 150px; }
+        h2 { font-size: $font-size-md; }
+        p { font-size: $font-size-sm; }
+        small { font-size: $font-size-xs; }
+        .buy-btn { font-size: $font-size-sm; }
+      }
+    }
+  }
+}
