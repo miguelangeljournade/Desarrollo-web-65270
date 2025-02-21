@@ -49,7 +49,7 @@ transition: background 0.3s, transform 0.3s;
 }
 }
 
-// Reset
+// Riset
 
 * {
 margin: 0;
@@ -135,7 +135,7 @@ nav.navbar {
 }
 
 
-// Main
+// Mein
 
 main {
 flex: 1;
@@ -146,7 +146,7 @@ margin: 0 auto;
 }
 
 
-// Hero Section
+// Hero Seccion
 
 section.hero {
 min-height: 100vh;
@@ -191,7 +191,7 @@ p {
 }
 
 
-// Products Section
+// Productos
 
 section.products {
 padding: $spacing-xl 0;
@@ -262,7 +262,7 @@ h1 {
 }
 
 
-// Other Sections (curar-mate, regalos, quienes-somos, contacto)
+// curar-mate, regalos, quienes-somos, contacto
 
 section.curar-mate,
 section.regalos,
@@ -338,7 +338,7 @@ p {
 }
 
 
-// Footer
+// Futer
 
 footer {
 background: $color-nav-fondo;
@@ -350,7 +350,7 @@ font-size: $font-size-md + 0.2rem;
 }
 
 
-// Animations
+// Animaciones
 
 @keyframes fadeIn {
 from {
