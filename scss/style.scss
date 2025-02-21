@@ -18,14 +18,16 @@ $spacing-md: 1.5rem;
 $spacing-lg: 2rem;
 $spacing-xl: 3rem;
 
-$font-size-xs: 0.875rem;
-$font-size-sm: 1rem;
-$font-size-md: 1.25rem;
-$font-size-lg: 1.5rem;
-$font-size-xl: 2rem;
-$font-size-hero: 3.5rem;
+// Tamaños de fuente reducidos poroporcionalmente
+$font-size-xs: 0.75rem;    
+$font-size-sm: 0.875rem;   
+$font-size-md: 1rem;       
+$font-size-lg: 1.25rem;   
+$font-size-xl: 1.5rem;     
+$font-size-hero: 3rem;     
+$font-size-footer: 0.6rem; 
 
-// Mxins
+// Mixins
 @mixin flex-center($direction: row) {
   display: flex;
   justify-content: center;
@@ -49,14 +51,14 @@ $font-size-hero: 3.5rem;
   }
 }
 
-// Riset
+/* Riset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-// Bodi
+/* Bodi */
 body {
   font-family: 'Arial', sans-serif;
   background: $color-body-bg;
@@ -68,7 +70,7 @@ body {
   @include flex-center(column);
 }
 
-// Navegacion
+/*Navegacion*/
 header {
   nav.navbar {
     background: $color-nav-bg;
@@ -140,21 +142,21 @@ header {
   }
 }
 
-// Mein
+/* Mein */
 main {
   flex: 1;
   max-width: $max-width;
   width: 90%;
   padding: $spacing-xl $spacing-sm;
-  margin: $spacing-lg auto 0;
+  margin-top: 4.5rem;
 }
 
-// Hero Section
+/* Hero */
 section.hero {
   min-height: 80vh;
   padding: $spacing-lg $spacing-sm;
   text-align: center;
-  background: url('../img/promo.jpg') no-repeat center/cover; // Cambiado de hero.jpg a promo.jpg
+  background: url('../img/promo.jpg') no-repeat center/cover;
 
   @include flex-center(column);
 
@@ -191,7 +193,9 @@ section.hero {
   }
 }
 
-// Products Section
+
+/* Productos */
+
 section.products {
   padding: $spacing-lg 0;
   text-align: center;
@@ -259,7 +263,7 @@ section.products {
   }
 }
 
-// resto de seccions
+/* Resto de seccions */
 section.curar-mate,
 section.regalos,
 section.quienes-somos,
@@ -333,19 +337,22 @@ section.contacto {
   }
 }
 
-// Futer
+/* Fouter */
 footer {
   background: $color-nav-bg;
   color: $color-nav-text;
   text-align: center;
   padding: $spacing-md;
   width: 100%;
-  font-size: $font-size-md;
+  font-size: $font-size-footer; // Mucho más pequeño
 }
 
-// Responsiv
+/* Responsive */
 @media (max-width: 1024px) {
-  section.products {
+    main{
+        margin-top: 9rem;
+    }
+    section.products {
     .products-grid {
       grid-template-columns: repeat(3, 1fr);
     }
@@ -355,6 +362,7 @@ footer {
 @media (max-width: 768px) {
   main {
     width: 92%;
+    margin-top: 4rem;
     padding: $spacing-md $spacing-xs;
   }
 
