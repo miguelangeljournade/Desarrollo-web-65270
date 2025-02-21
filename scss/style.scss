@@ -1,4 +1,5 @@
-// Variablees
+
+// Variables
 $color-fondo: #000000;
 $color-tipografia: #FFFFFF;
 $color-nav-fondo: #FFFFFF;
@@ -7,8 +8,8 @@ $color-btn-compra: #528275;
 $color-btn-tipografia: #FFFFFF;
 
 $max-width: 1400px;
-$logo-height: 80px;
-$logo-height-mobile: 50px;
+$logo-height: 50px;           // Reducido para navbar más fino
+$logo-height-mobile: 30px;    // Reducido para móvil
 $product-img-height: 300px;
 $promo-img-width: 500px;
 
@@ -21,62 +22,55 @@ $font-size-base: 1rem;
 $font-size-md: 1.2rem;
 $font-size-lg: 1.6rem;
 $font-size-xl: 2rem;
-$font-size-hero: 5rem;
+$font-size-hero: 5rem;        // Mantengo este nombre aunque la sección ahora es "logo"
 
-
-// Mixins
-
+// Mxins
 @mixin flex-center($direction: row) {
-display: flex;
-justify-content: center;
-align-items: center;
-flex-direction: $direction;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: $direction;
 }
 
 @mixin button-styles($bg: $color-btn-compra, $color: $color-btn-tipografia) {
-background: $bg;
-color: $color;
-padding: $spacing-sm $spacing-md;
-border-radius: 8px;
-text-decoration: none;
-font-weight: bold;
-text-transform: uppercase;
-transition: background 0.3s, transform 0.3s;
+  background: $bg;
+  color: $color;
+  padding: $spacing-sm $spacing-md;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: background 0.3s, transform 0.3s;
 
-&:hover {
+  &:hover {
     background: darken($bg, 10%);
     transform: scale(1.05);
-}
+  }
 }
 
 // Riset
-
 * {
-margin: 0;
-padding: 0;
-box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-
-// Body
-
+// Bodi
 body {
-font-family: 'Arial', sans-serif;
-background: $color-fondo;
-color: $color-tipografia;
-line-height: 1.6;
-min-height: 100vh;
+  font-family: 'Arial', sans-serif;
+  background: $color-fondo;
+  color: $color-tipografia;
+  line-height: 1.6;
+  min-height: 100vh;
 
-@include flex-center(column);
+  @include flex-center(column);
 }
 
-
-// Navbar
-
+// Navegacion
 header {
-nav.navbar {
+  nav.navbar {
     background: $color-nav-fondo;
-    padding: $spacing-lg $spacing-sm;
+    padding: 0.25rem $spacing-sm; // Más fino, solo 0.25rem arriba/abajo
     width: 100%;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     position: sticky;
@@ -84,40 +78,40 @@ nav.navbar {
     z-index: 1000;
 
     .container {
-    max-width: $max-width;
-    width: 100%;
-    margin: 0 auto;
+      max-width: $max-width;
+      width: 100%;
+      margin: 0 auto;
 
-    @include flex-center(row);
-    justify-content: space-between;
+      @include flex-center(row);
+      justify-content: space-between;
     }
 
     .navbar-brand {
-    margin: 0;
-    padding: 0;
+      margin: 0;
+      padding: 0;
 
-    .logo {
-        height: $logo-height;
+      .logo {
+        height: $logo-height; // Define la altura del navbar
         width: auto;
         max-width: 250px;
         object-fit: contain;
-    }
+      }
     }
 
     .navbar-toggler {
-    display: none;
+      display: none;
     }
 
     .navbar-collapse {
-    @include flex-center(row);
-    justify-content: flex-end;
+      @include flex-center(row);
+      justify-content: flex-end;
 
-    .navbar-nav {
+      .navbar-nav {
         @include flex-center(row);
         gap: $spacing-lg;
 
         .nav-item {
-        .nav-link {
+          .nav-link {
             color: $color-nav-tipografia;
             font-size: $font-size-md;
             font-weight: 500;
@@ -125,189 +119,181 @@ nav.navbar {
             transition: color 0.3s;
 
             &:hover {
-            color: $color-btn-compra;
+              color: $color-btn-compra;
             }
+          }
         }
-        }
+      }
     }
-    }
+  }
 }
-}
-
 
 // Mein
-
 main {
-flex: 1;
-max-width: $max-width;
-width: 100%;
-padding: $spacing-xl $spacing-sm;
-margin: 0 auto;
+  flex: 1;
+  max-width: $max-width;
+  width: 100%;
+  padding: $spacing-xl $spacing-sm;
+  margin: 0 auto;
 }
 
+// Logo Seccion
+section.logo { // Cambiado de "hero" a "logo"
+  min-height: 100vh;
+  padding: $spacing-xl $spacing-md;
 
-// Hero Seccion
+  @include flex-center(column);
+  text-align: center;
+  background: url('../img/logo.jpg') no-repeat center/cover; // Cambiado a logo.jpg
 
-section.hero {
-min-height: 100vh;
-padding: $spacing-xl $spacing-md;
-
-@include flex-center(column);
-text-align: center;
-background: url('../img/hero.jpg') no-repeat center/cover;
-
-h1 {
+  h1 {
     font-size: $font-size-hero;
     margin-bottom: $spacing-md;
     text-transform: uppercase;
     font-weight: bold;
     text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
     animation: fadeIn 1s ease-in;
-}
+  }
 
-p {
+  p {
     font-size: $font-size-xl;
     margin: 0 0 $spacing-md;
-}
+  }
 
-.promo-img {
+  .promo-img {
     max-width: $promo-img-width;
     width: 100%;
     height: auto;
     margin: $spacing-md 0;
-}
+  }
 
-.price {
+  .price {
     font-size: $font-size-xl + 0.5rem;
     font-weight: bold;
     margin: $spacing-sm 0;
-}
+  }
 
-.btn {
+  .btn {
     @include button-styles;
     padding: ($spacing-md - 0.2rem) $spacing-lg;
     font-size: $font-size-lg;
+  }
 }
-}
-
 
 // Productos
-
 section.products {
-padding: $spacing-xl 0;
-text-align: center;
+  padding: $spacing-xl 0;
+  text-align: center;
 
-h1 {
+  h1 {
     font-size: $font-size-xl + 0.5rem;
     margin-bottom: $spacing-lg;
     text-transform: uppercase;
-}
+  }
 
-.products-grid {
+  .products-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: $spacing-lg;
     padding: 0 $spacing-sm;
 
     .product-card {
-    background: $color-nav-fondo;
-    padding: $spacing-md;
-    border: 1px solid $color-tipografia;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
-    transition: transform 0.3s;
-    cursor: pointer;
+      background: $color-nav-fondo;
+      padding: $spacing-md;
+      border: 1px solid $color-tipografia;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
+      transition: transform 0.3s;
+      cursor: pointer;
 
-    @include flex-center(column);
-    justify-content: space-between;
+      @include flex-center(column);
+      justify-content: space-between;
 
-    &:hover {
+      &:hover {
         transform: translateY(-10px);
-    }
+      }
 
-    img {
+      img {
         max-height: $product-img-height;
         width: 100%;
         object-fit: cover;
         border-radius: 10px;
         margin-bottom: $spacing-md;
-    }
+      }
 
-    h2 {
+      h2 {
         font-size: $font-size-xl;
         margin: $spacing-sm 0;
         color: $color-nav-tipografia;
         font-weight: 600;
-    }
+      }
 
-    p {
+      p {
         font-size: $font-size-lg;
         margin: $spacing-sm/2 0;
         color: $color-nav-tipografia;
-    }
+      }
 
-    small {
+      small {
         color: $color-nav-tipografia;
         font-size: $font-size-md;
-    }
+      }
 
-    .buy-btn {
+      .buy-btn {
         @include button-styles;
         margin-top: $spacing-md;
         width: 100%;
         font-size: $font-size-md + 0.2rem;
+      }
     }
-    }
+  }
 }
-}
-
 
 // curar-mate, regalos, quienes-somos, contacto
-
 section.curar-mate,
 section.regalos,
 section.quienes-somos,
 section.contacto {
-padding: $spacing-xl 0;
-text-align: center;
+  padding: $spacing-xl 0;
+  text-align: center;
 
-h1 {
+  h1 {
     font-size: $font-size-xl + 0.5rem;
     margin-bottom: $spacing-md;
     text-transform: uppercase;
-}
+  }
 
-h2 {
+  h2 {
     font-size: $font-size-xl;
     margin: $spacing-md 0;
     color: $color-tipografia;
-}
+  }
 
-p {
+  p {
     font-size: $font-size-lg;
     margin: $spacing-sm 0;
-}
+  }
 
-&.regalos {
+  &.regalos {
     .buy-btn {
-    @include button-styles;
-    margin-top: $spacing-md;
-    width: 100%;
-      max-width: 300px; // Limita el ancho como los botones de compra
-    font-size: $font-size-md + 0.2rem;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+      @include button-styles;
+      margin-top: $spacing-md;
+      width: 100%;
+      max-width: 300px;
+      font-size: $font-size-md + 0.2rem;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
     }
-}
+  }
 
-&.contacto {
+  &.contacto {
     form {
-    @include flex-center(column);
-    gap: $spacing-md;
-    margin-bottom: $spacing-lg;
+      @include flex-center(column);
+      gap: $spacing-md;
+      margin-bottom: $spacing-lg;
 
-    input {
+      input {
         padding: $spacing-sm;
         width: 100%;
         max-width: 500px;
@@ -316,211 +302,83 @@ p {
         font-size: $font-size-md + 0.2rem;
         background: $color-nav-fondo;
         color: $color-nav-tipografia;
-    }
+      }
 
-    .btn {
+      .btn {
         @include button-styles;
         padding: $spacing-sm $spacing-md;
         font-size: $font-size-md + 0.2rem;
-    }
+      }
     }
 
     .social-links {
-    @include flex-center(row);
-    gap: $spacing-md;
-    .btn {
+      @include flex-center(row);
+      gap: $spacing-md;
+
+      .btn {
         @include button-styles;
         padding: $spacing-sm $spacing-md;
         font-size: $font-size-md + 0.2rem;
+      }
     }
-    }
+  }
 }
-}
 
-
-// Futer
-
+// Fuyter
 footer {
-background: $color-nav-fondo;
-color: $color-nav-tipografia;
-text-align: center;
-padding: $spacing-md;
-width: 100%;
-font-size: $font-size-md + 0.2rem;
+  background: $color-nav-fondo;
+  color: $color-nav-tipografia;
+  text-align: center;
+  padding: $spacing-md;
+  width: 100%;
+  font-size: $font-size-md + 0.2rem;
 }
-
 
 // Animaciones
-
 @keyframes fadeIn {
-from {
+  from {
     opacity: 0;
-}
-to {
+  }
+  to {
     opacity: 1;
+  }
 }
-}
-
 
 // Responsive
-
 @media (max-width: 1024px) {
-section.products {
+  section.products {
     .products-grid {
-    grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(3, 1fr);
     }
-}
+  }
 }
 
 @media (max-width: 768px) {
-section.hero {
+  section.logo { // Cambiado de hero a logo
     min-height: 70vh;
 
     h1 {
-    font-size: $font-size-xl + 0.5rem;
+      font-size: $font-size-xl + 0.5rem;
     }
 
     p {
-    font-size: $font-size-md + 0.2rem;
+      font-size: $font-size-md + 0.2rem;
     }
 
     .price {
-    font-size: $font-size-lg;
+      font-size: $font-size-lg;
     }
 
     .promo-img {
-    max-width: 300px;
+      max-width: 300px;
     }
 
     .btn {
-    padding: $spacing-sm $spacing-md;
-    font-size: $font-size-md;
+      padding: $spacing-sm $spacing-md;
+      font-size: $font-size-md;
     }
-}
+  }
 
-section.products {
+  section.products {
     .products-grid {
-    grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-section.curar-mate,
-section.regalos,
-section.quienes-somos,
-section.contacto {
-    padding: $spacing-lg 0;
-
-    h1 {
-    font-size: $font-size-xl;
-    }
-
-    h2 {
-    font-size: $font-size-lg;
-    }
-
-    p {
-    font-size: $font-size-md + 0.2rem;
-    }
-}
-}
-
-@media (max-width: 576px) {
-header {
-    nav.navbar {
-    padding: $spacing-md;
-
-    .navbar-brand {
-        .logo {
-        height: $logo-height-mobile;
-        max-width: 150px;
-        }
-    }
-
-    .navbar-toggler {
-        display: block;
-        margin-left: auto;
-    }
-
-    .navbar-collapse {
-        display: none;
-
-        &.show {
-        display: block;
-        }
-
-        .navbar-nav {
-        @include flex-center(column);
-        gap: $spacing-sm;
-        width: 100%;
-        }
-    }
-
-    .nav-item {
-        .nav-link {
-        font-size: $font-size-md;
-        padding: $spacing-sm/2;
-        }
-    }
-    }
-}
-
-section.hero {
-    min-height: 60vh;
-
-    h1 {
-    font-size: $font-size-lg;
-    }
-
-    p {
-    font-size: $font-size-md;
-    }
-
-    .price {
-    font-size: $font-size-md + 0.2rem;
-    }
-
-    .promo-img {
-    max-width: 200px;
-    }
-
-    .btn {
-    padding: $spacing-sm/2 $spacing-md;
-    font-size: $font-size-md;
-}
-}
-
-section.products {
-    .products-grid {
-    grid-template-columns: 1fr;
-
-    .product-card {
-        img {
-        max-height: 200px;
-        }
-
-        h2 {
-        font-size: $font-size-lg;
-        }
-
-        p {
-        font-size: $font-size-md;
-        }
-
-        .buy-btn {
-        font-size: $font-size-md;
-        }
-    }
-    }
-}
-
-section.curar-mate,
-section.regalos,
-section.quienes-somos,
-section.contacto {
-    padding: $spacing-md 0;
-}
-
-footer {
-    font-size: $font-size-md;
-}
-}
+      grid-template-columns: repea
