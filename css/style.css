@@ -1,34 +1,44 @@
+/* Riset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* Bodi */
 body {
   font-family: "Arial", sans-serif;
   background: #000000;
   color: #FFFFFF;
-  line-height: 1.6;
+  line-height: 1.5;
   min-height: 100vh;
+  overflow-x: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
 
+/*Navegacion*/
 header nav.navbar {
   background: #FFFFFF;
-  padding: 3rem 1rem;
   width: 100%;
+  padding: 1.5rem 1rem;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
   z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
 }
 header nav.navbar .container {
-  max-width: 1400px;
-  width: 100%;
-  margin: 0 auto;
+  max-width: 1440px;
+  width: 90%;
+  margin: 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -36,124 +46,130 @@ header nav.navbar .container {
   justify-content: space-between;
 }
 header nav.navbar .navbar-brand {
-  margin: 0;
   padding: 0;
 }
 header nav.navbar .navbar-brand .logo {
   height: 80px;
   width: auto;
-  max-width: 250px;
+  max-width: 200px;
   object-fit: contain;
 }
 header nav.navbar .navbar-toggler {
   display: none;
+  border: none;
+  padding: 0.5rem;
+}
+header nav.navbar .navbar-toggler .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0, 0, 0, 0.8)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  width: 24px;
+  height: 24px;
 }
 header nav.navbar .navbar-collapse {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: row;
-  justify-content: flex-end;
 }
 header nav.navbar .navbar-collapse .navbar-nav {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: row;
-  gap: 3rem;
+  gap: 1.5rem;
 }
 header nav.navbar .navbar-collapse .navbar-nav .nav-item .nav-link {
   color: #000000;
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 500;
   padding: 1rem;
-  transition: color 0.3s;
+  transition: color 0.3s ease;
 }
 header nav.navbar .navbar-collapse .navbar-nav .nav-item .nav-link:hover {
   color: #528275;
 }
 
+/* Mein */
 main {
   flex: 1;
-  max-width: 1400px;
-  width: 100%;
-  padding: 4rem 1rem;
-  margin: 0 auto;
+  max-width: 1440px;
+  width: 90%;
+  padding: 3rem 1rem;
+  margin-top: 4.5rem;
 }
 
+/* Hero */
 section.hero {
-  min-height: 100vh;
-  padding: 4rem 2rem;
+  min-height: 80vh;
+  padding: 2rem 1rem;
+  text-align: center;
+  background: url("../img/promo.jpg") no-repeat center/cover;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  text-align: center;
-  background: url("../img/hero.jpg") no-repeat center/cover;
 }
 section.hero h1 {
-  font-size: 5rem;
-  margin-bottom: 2rem;
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
   text-transform: uppercase;
   font-weight: bold;
-  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
-  animation: fadeIn 1s ease-in;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
 }
 section.hero p {
-  font-size: 2rem;
-  margin: 0 0 2rem;
+  font-size: 1.25rem;
+  margin: 0 0 1.5rem;
 }
 section.hero .promo-img {
-  max-width: 500px;
+  max-width: 400px;
   width: 100%;
   height: auto;
-  margin: 2rem 0;
+  margin: 1.5rem 0;
 }
 section.hero .price {
-  font-size: 2.5rem;
+  font-size: 1.5rem;
   font-weight: bold;
   margin: 1rem 0;
 }
 section.hero .btn {
   background: #528275;
   color: #FFFFFF;
-  padding: 1rem 2rem;
+  padding: 1rem 1.5rem;
   border-radius: 8px;
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 600;
   text-transform: uppercase;
-  transition: background 0.3s, transform 0.3s;
-  padding: 1.8rem 3rem;
-  font-size: 1.6rem;
+  transition: background 0.3s ease, transform 0.3s ease;
+  padding: 1rem 2rem;
+  font-size: 1rem;
 }
 section.hero .btn:hover {
   background: rgb(62.2735849057, 98.7264150943, 88.8537735849);
   transform: scale(1.05);
 }
 
+/* Productos */
 section.products {
-  padding: 4rem 0;
+  padding: 2rem 0;
   text-align: center;
 }
 section.products h1 {
-  font-size: 2.5rem;
-  margin-bottom: 3rem;
+  font-size: 2rem;
+  margin-bottom: 2rem;
   text-transform: uppercase;
 }
 section.products .products-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 3rem;
+  gap: 1.5rem;
   padding: 0 1rem;
 }
 section.products .products-grid .product-card {
   background: #FFFFFF;
-  padding: 2rem;
+  padding: 1rem;
   border: 1px solid #FFFFFF;
   border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
-  transition: transform 0.3s;
-  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -161,76 +177,76 @@ section.products .products-grid .product-card {
   justify-content: space-between;
 }
 section.products .products-grid .product-card:hover {
-  transform: translateY(-10px);
+  transform: translateY(-8px);
 }
 section.products .products-grid .product-card img {
-  max-height: 300px;
+  max-height: 240px;
   width: 100%;
   object-fit: cover;
-  border-radius: 10px;
-  margin-bottom: 2rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
 }
 section.products .products-grid .product-card h2 {
-  font-size: 2rem;
-  margin: 1rem 0;
+  font-size: 1.25rem;
+  margin: 0.5rem 0;
   color: #000000;
   font-weight: 600;
 }
 section.products .products-grid .product-card p {
-  font-size: 1.6rem;
+  font-size: 1rem;
   margin: 0.5rem 0;
   color: #000000;
 }
 section.products .products-grid .product-card small {
   color: #000000;
-  font-size: 1.2rem;
+  font-size: 0.875rem;
 }
 section.products .products-grid .product-card .buy-btn {
   background: #528275;
   color: #FFFFFF;
-  padding: 1rem 2rem;
+  padding: 1rem 1.5rem;
   border-radius: 8px;
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 600;
   text-transform: uppercase;
-  transition: background 0.3s, transform 0.3s;
-  margin-top: 2rem;
+  transition: background 0.3s ease, transform 0.3s ease;
+  margin-top: 1rem;
   width: 100%;
-  font-size: 1.4rem;
+  font-size: 1rem;
 }
 section.products .products-grid .product-card .buy-btn:hover {
   background: rgb(62.2735849057, 98.7264150943, 88.8537735849);
   transform: scale(1.05);
 }
 
+/* Resto de seccions */
 section.curar-mate,
 section.regalos,
 section.quienes-somos,
 section.contacto {
-  padding: 4rem 0;
+  padding: 2rem 0;
   text-align: center;
 }
 section.curar-mate h1,
 section.regalos h1,
 section.quienes-somos h1,
 section.contacto h1 {
-  font-size: 2.5rem;
-  margin-bottom: 2rem;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
   text-transform: uppercase;
 }
 section.curar-mate h2,
 section.regalos h2,
 section.quienes-somos h2,
 section.contacto h2 {
-  font-size: 2rem;
-  margin: 2rem 0;
-  color: #FFFFFF;
+  font-size: 1.25rem;
+  margin: 1.5rem 0;
 }
 section.curar-mate p,
 section.regalos p,
 section.quienes-somos p,
 section.contacto p {
-  font-size: 1.6rem;
+  font-size: 1rem;
   margin: 1rem 0;
 }
 section.curar-mate.regalos .buy-btn,
@@ -239,16 +255,16 @@ section.quienes-somos.regalos .buy-btn,
 section.contacto.regalos .buy-btn {
   background: #528275;
   color: #FFFFFF;
-  padding: 1rem 2rem;
+  padding: 1rem 1.5rem;
   border-radius: 8px;
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 600;
   text-transform: uppercase;
-  transition: background 0.3s, transform 0.3s;
-  margin-top: 2rem;
+  transition: background 0.3s ease, transform 0.3s ease;
+  margin-top: 1.5rem;
   width: 100%;
-  max-width: 300px;
-  font-size: 1.4rem;
+  max-width: 250px;
+  font-size: 1rem;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -268,8 +284,8 @@ section.contacto.contacto form {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap: 2rem;
-  margin-bottom: 3rem;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
 }
 section.curar-mate.contacto form input,
 section.regalos.contacto form input,
@@ -277,10 +293,10 @@ section.quienes-somos.contacto form input,
 section.contacto.contacto form input {
   padding: 1rem;
   width: 100%;
-  max-width: 500px;
+  max-width: 400px;
   border: 1px solid #FFFFFF;
   border-radius: 8px;
-  font-size: 1.4rem;
+  font-size: 1rem;
   background: #FFFFFF;
   color: #000000;
 }
@@ -290,14 +306,14 @@ section.quienes-somos.contacto form .btn,
 section.contacto.contacto form .btn {
   background: #528275;
   color: #FFFFFF;
-  padding: 1rem 2rem;
+  padding: 1rem 1.5rem;
   border-radius: 8px;
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 600;
   text-transform: uppercase;
-  transition: background 0.3s, transform 0.3s;
-  padding: 1rem 2rem;
-  font-size: 1.4rem;
+  transition: background 0.3s ease, transform 0.3s ease;
+  padding: 1rem 1.5rem;
+  font-size: 1rem;
 }
 section.curar-mate.contacto form .btn:hover,
 section.regalos.contacto form .btn:hover,
@@ -314,7 +330,7 @@ section.contacto.contacto .social-links {
   justify-content: center;
   align-items: center;
   flex-direction: row;
-  gap: 2rem;
+  gap: 1.5rem;
 }
 section.curar-mate.contacto .social-links .btn,
 section.regalos.contacto .social-links .btn,
@@ -322,14 +338,14 @@ section.quienes-somos.contacto .social-links .btn,
 section.contacto.contacto .social-links .btn {
   background: #528275;
   color: #FFFFFF;
-  padding: 1rem 2rem;
+  padding: 1rem 1.5rem;
   border-radius: 8px;
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 600;
   text-transform: uppercase;
-  transition: background 0.3s, transform 0.3s;
-  padding: 1rem 2rem;
-  font-size: 1.4rem;
+  transition: background 0.3s ease, transform 0.3s ease;
+  padding: 1rem 1.5rem;
+  font-size: 1rem;
 }
 section.curar-mate.contacto .social-links .btn:hover,
 section.regalos.contacto .social-links .btn:hover,
@@ -339,83 +355,75 @@ section.contacto.contacto .social-links .btn:hover {
   transform: scale(1.05);
 }
 
+/* Fouter */
 footer {
   background: #FFFFFF;
   color: #000000;
   text-align: center;
-  padding: 2rem;
+  padding: 1.5rem;
   width: 100%;
-  font-size: 1.4rem;
+  font-size: 0.6rem;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
+/* Responsive */
 @media (max-width: 1024px) {
+  main {
+    margin-top: 9rem;
+  }
   section.products .products-grid {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 @media (max-width: 768px) {
+  main {
+    width: 92%;
+    margin-top: 4rem;
+    padding: 1.5rem 0.5rem;
+  }
   section.hero {
-    min-height: 70vh;
+    min-height: 60vh;
   }
   section.hero h1 {
-    font-size: 2.5rem;
+    font-size: 1.5rem;
   }
   section.hero p {
-    font-size: 1.4rem;
+    font-size: 1rem;
   }
   section.hero .price {
-    font-size: 1.6rem;
+    font-size: 1.25rem;
   }
   section.hero .promo-img {
     max-width: 300px;
   }
   section.hero .btn {
-    padding: 1rem 2rem;
-    font-size: 1.2rem;
+    padding: 0.5rem 1.5rem;
+    font-size: 0.875rem;
+  }
+  section.products {
+    padding: 1.5rem 0;
+  }
+  section.products h1 {
+    font-size: 1.45rem;
   }
   section.products .products-grid {
     grid-template-columns: repeat(2, 1fr);
-  }
-  section.curar-mate,
-  section.regalos,
-  section.quienes-somos,
-  section.contacto {
-    padding: 3rem 0;
-  }
-  section.curar-mate h1,
-  section.regalos h1,
-  section.quienes-somos h1,
-  section.contacto h1 {
-    font-size: 2rem;
-  }
-  section.curar-mate h2,
-  section.regalos h2,
-  section.quienes-somos h2,
-  section.contacto h2 {
-    font-size: 1.6rem;
-  }
-  section.curar-mate p,
-  section.regalos p,
-  section.quienes-somos p,
-  section.contacto p {
-    font-size: 1.4rem;
+    gap: 1rem;
   }
 }
 @media (max-width: 576px) {
+  body {
+    font-size: 0.75rem;
+  }
   header nav.navbar {
-    padding: 2rem;
+    padding: 0.5rem;
+  }
+  header nav.navbar .container {
+    width: 100%;
+    padding: 0 0.5rem;
   }
   header nav.navbar .navbar-brand .logo {
-    height: 50px;
-    max-width: 150px;
+    height: 40px;
+    max-width: 120px;
   }
   header nav.navbar .navbar-toggler {
     display: block;
@@ -426,62 +434,79 @@ footer {
   }
   header nav.navbar .navbar-collapse.show {
     display: block;
+    width: 100%;
+    background: #FFFFFF;
+    padding: 1rem;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   }
   header nav.navbar .navbar-collapse .navbar-nav {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    gap: 1rem;
-    width: 100%;
+    gap: 0.5rem;
   }
-  header nav.navbar .nav-item .nav-link {
-    font-size: 1.2rem;
+  header nav.navbar .navbar-collapse .navbar-nav .nav-item .nav-link {
+    padding: 0.5rem;
+    font-size: 0.875rem;
+  }
+  main {
     padding: 0.5rem;
   }
   section.hero {
-    min-height: 60vh;
+    min-height: 50vh;
+    padding: 1.5rem 0.5rem;
   }
   section.hero h1 {
-    font-size: 1.6rem;
+    font-size: 1.25rem;
   }
   section.hero p {
-    font-size: 1.2rem;
+    font-size: 0.875rem;
   }
   section.hero .price {
-    font-size: 1.4rem;
+    font-size: 1rem;
   }
   section.hero .promo-img {
     max-width: 200px;
   }
   section.hero .btn {
-    padding: 0.5rem 2rem;
-    font-size: 1.2rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.75rem;
+  }
+  section.products {
+    padding: 1rem 0;
+  }
+  section.products h1 {
+    font-size: 1.25rem;
   }
   section.products .products-grid {
     grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+  section.products .products-grid .product-card {
+    padding: 0.5rem;
   }
   section.products .products-grid .product-card img {
-    max-height: 200px;
+    max-height: 150px;
   }
   section.products .products-grid .product-card h2 {
-    font-size: 1.6rem;
+    font-size: 1rem;
   }
   section.products .products-grid .product-card p {
-    font-size: 1.2rem;
+    font-size: 0.875rem;
+  }
+  section.products .products-grid .product-card small {
+    font-size: 0.75rem;
   }
   section.products .products-grid .product-card .buy-btn {
-    font-size: 1.2rem;
-  }
-  section.curar-mate,
-  section.regalos,
-  section.quienes-somos,
-  section.contacto {
-    padding: 2rem 0;
-  }
-  footer {
-    font-size: 1.2rem;
+    font-size: 0.875rem;
   }
 }
+
+/*# sourceMappingURL=style.css.map */
+
 
 /*# sourceMappingURL=style.css.map */
